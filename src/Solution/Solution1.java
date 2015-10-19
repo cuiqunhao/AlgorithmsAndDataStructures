@@ -4,12 +4,18 @@ import java.util.ArrayList;
 
 public class Solution1 {
 
+	/***
+	 * 输出所有和为S的连续正数序列。序列内按照从小至大的顺序，序列间按照开始数字从小到大的顺序
+	 * 
+	 * @param sum
+	 * @return
+	 */
 	public ArrayList<ArrayList<Integer>> FindContinuousSequence(int sum) {
-		if (sum < 3)
-			return null;
 
 		ArrayList<ArrayList<Integer>> data = new ArrayList<ArrayList<Integer>>();
-		ArrayList<Integer> newarrayList = new ArrayList<Integer>();
+		if (sum < 3)
+			return data;
+		
 		int small = 1;
 		int big = 2;
 		int tempsum = 0;
@@ -20,7 +26,7 @@ public class Solution1 {
 			else if (tempsum > sum)
 				small++;
 			else {
-				newarrayList.clear();
+				ArrayList<Integer> newarrayList = new ArrayList<Integer>();
 				for (int i = small; i <= big; i++) {
 					newarrayList.add(i);
 				}
